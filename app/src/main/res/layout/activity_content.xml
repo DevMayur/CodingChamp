@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ContentActivity">
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/Theme.AppCompat.DayNight">-->
+
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tabs"-->
+<!--            app:tabTextColor="@color/gray"-->
+<!--            android:visibility="gone"-->
+<!--            app:tabIndicatorHeight="8dp"-->
+<!--            app:tabIndicator="@color/purple_700"-->
+<!--            app:tabIndicatorColor="@color/purple_700"-->
+<!--            app:tabSelectedTextColor="@color/purple_200"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--        -->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.viewpager.widget.ViewPager
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbarSize="12dp"
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <LinearLayout
+        android:id="@+id/banner_container1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</LinearLayout>
