@@ -32,9 +32,7 @@ public class NetworkTask extends BaseAsyncTask {
     }
 
     private Object getData() {
-
         Uri builtURI = Uri.parse(url).buildUpon().build();
-
         try {
             URL requestURL = new URL(builtURI.toString());
             urlConnection = (HttpURLConnection) requestURL.openConnection();

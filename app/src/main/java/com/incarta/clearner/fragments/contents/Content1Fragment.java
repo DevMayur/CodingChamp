@@ -106,6 +106,7 @@ public class Content1Fragment extends Fragment {
             public void setDataInPageWithResult(Object result) {
                 if (result != null) {
                     String jsonData = result.toString();
+                    Log.d(TAG, "setDataInPageWithResult: ");
 
 //                    SharedPreferences sharedPreferences = getContext().getSharedPreferences("contents", Context.MODE_PRIVATE);
 //                    SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -117,20 +118,20 @@ public class Content1Fragment extends Fragment {
             }
         };
 
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("contents", Context.MODE_PRIVATE);
-        String result = sharedPreferences.getString(content_id,"null");
-        if (!result.equals("null")) {
-            getData(result);
-        }else {
-            runner.executeAsync(new NetworkTask(onDataFetched, Config.API.CONTENT_URL + content_id));
-        }
 
+            runner.executeAsync(new NetworkTask(onDataFetched, Config.API.CONTENT_URL + content_id));
+        
 
 
         adapter.notifyDataSetChanged();
     }
 
+
+    public static final String TAG = "content1";
+
     private void getData(String jsonData) {
+        Log.d(TAG, "getData: ");
+//        Log.d(TAG, "getData: " + jsonData);
             String id = null;
             String content_title = null;
             String content_text = null;
@@ -139,6 +140,7 @@ public class Content1Fragment extends Fragment {
             String content_code = null;
 
             try {
+                Log.d(TAG, "getData: try");
                 JSONObject jsonObject = new JSONObject(jsonData);
                 int i = 0;
                 JSONArray jsonArray = jsonObject.getJSONArray("get_subtitles");
@@ -156,11 +158,15 @@ public class Content1Fragment extends Fragment {
                     cList.add(new ContentModel(id,content_title,content_text,content_img,subtitle_id,content_code));
                     i++;
 
+                    Log.d(TAG, "getData: " + i);
+
                 }
 
+                Log.d(TAG,  " out getData: " + i);
                 adapter.notifyDataSetChanged();
 
             }catch(Exception e) {
+                Log.d(TAG, "getData: exception");
                 Log.d("tag_for_data2", " exception : " + e.getMessage());
             }
     }

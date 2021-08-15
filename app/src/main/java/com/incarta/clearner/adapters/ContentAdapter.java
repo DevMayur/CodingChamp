@@ -1,6 +1,7 @@
 package com.incarta.clearner.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,8 +73,12 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     }
 
+
+    public static final String TAG = "cAdpater";
+
     @Override
     public int getItemCount() {
+        Log.d(TAG, "getItemCount: " + cList.size());
         return cList.size();
     }
 
